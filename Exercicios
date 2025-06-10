@@ -1,0 +1,19 @@
+using System;
+
+class Program
+{
+    static void Local(string Classe,string Questão)
+    {
+        Console.Clear();
+        Console.WriteLine($"""
+            {Classe}
+            {Questão}
+            """);
+    }
+
+    static void Main()
+    {
+        int Exercicio = 0;
+        Local("","Questão-1");
+    }
+}
