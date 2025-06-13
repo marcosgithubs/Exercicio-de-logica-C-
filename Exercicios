@@ -465,15 +465,15 @@ class Program
                 }
                 if (imc > 30.0 & imc < 34.9)
                 {
-                    Console.WriteLine("Obeso Level 1.");
+                    Console.WriteLine("Obeso Nivel 1.");
                 }
                 if (imc > 35.0 & imc < 39.9)
                 {
-                    Console.WriteLine("Obeso Level 2.");
+                    Console.WriteLine("Obeso Nivel 2.");
                 }
                 if (imc >= 40)
                 {
-                    Console.WriteLine("Obeso Level 3");
+                    Console.WriteLine("Obeso Nivel 3.");
                 }
                 Console.WriteLine("Pressione Enter para voltar...");
                 Console.ReadLine();
@@ -628,7 +628,7 @@ class Program
                 break;
 
             case 7:
-                double raiz = Math.Sqrt(valor1);
+                double raiz = Math.Pow(valor1, 1.0/valor2);
                 Console.WriteLine($"raiz quadrada de {valor1} = {raiz}");
                 break;
         }
@@ -645,9 +645,9 @@ class Program
         int anos = 0;
         while (sara_altura > francisco_altura - 0.000000000000001)
         {
-            anos += 1;
-            sara_altura += 0.2;
-            francisco_altura += 0.3;
+            anos++;
+            sara_altura += 0.02;
+            francisco_altura += 0.03;
         }
 
         Console.WriteLine($"Precisou de {anos} anos para Francisco ser maior que Sara");
@@ -673,7 +673,7 @@ class Program
         int anos = 0;
         while (sara_altura > francisco_altura - 0.000000000000001)
         {
-            anos += 1;
+            anos++;
             sara_altura += sara_crescimento;
             francisco_altura += francisco_crescimento;
         }
@@ -706,7 +706,6 @@ class Program
                 Console.WriteLine("Aqui esta a tabuada feita:");
                 Local("Exercícios de lógica", "questão - 3");
                 Console.WriteLine($"A Tabuada de 0 a 10.");
-                int N = 0;
                 for (int n = 0; n <= 10;)
                 {
                     Console.WriteLine($"A Tabuada do {n}:");
@@ -716,14 +715,11 @@ class Program
                         i++;
                     }
                     n++;
-                    N = n;
                 }
-                if (N >= 11)
-                {
-                    Console.WriteLine("Pressione Enter para voltar...");
-                    Console.ReadLine();
-                    Main();
-                }
+                Console.WriteLine("Pressione Enter para voltar...");
+                Console.ReadLine();
+                Main();
+                
                 break;
             case 3:
                 Local("Exercícios de lógica", "questão - 3");
@@ -835,11 +831,11 @@ class Program
             double valor1 = double.Parse(Console.ReadLine());
 
             double valor2 = 0;
-            if (opção != 7)
-            {
+
+            
                 Console.WriteLine("Digite o segundo número da equação:");
-                valor2 = double.Parse(Console.ReadLine());
-            }
+               valor2 = double.Parse(Console.ReadLine());
+            
 
             Calculadora(opção, valor1, valor2);
         }
