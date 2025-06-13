@@ -70,8 +70,8 @@ class Program
                 Console.Clear();
                 Local("Exercícios de lógica", "Questão - 1");
                 Console.WriteLine($"o antecessor de {numero} é: {numero - 1} e o sucessor de {numero} é: {numero + 1}");
-                Console.WriteLine($"Espere 5 segundos para voltar pro inicio.");
-                Thread.Sleep(5000);
+                Console.WriteLine("Pressione Enter para voltar...");
+                Console.ReadLine();
                 Main();
                 break;
 
@@ -84,8 +84,8 @@ class Program
                 Local("Exercícios de lógica", "Questão - 2");
                 double quanto_mais_ganha = salario_user / salario_minimo;
                 Console.WriteLine($"você recebe {Math.Round(quanto_mais_ganha)} vezes o salário minimo normal");
-                Console.WriteLine($"Espere 5 segundos para voltar pro inicio.");
-                Thread.Sleep(5000);
+                Console.WriteLine("Pressione Enter para voltar...");
+                Console.ReadLine();
                 Main();
                 break;
 
@@ -96,8 +96,8 @@ class Program
                 Console.Clear();
                 Local("Exercícios de lógica", "Questão - 3");
                 Console.WriteLine($"aqui esta o valor com reajuste: {valor_qualquer + 5 % valor_qualquer}");
-                Console.WriteLine($"Espere 5 segundos para voltar pro inicio.");
-                Thread.Sleep(5000);
+                Console.WriteLine("Pressione Enter para voltar...");
+                Console.ReadLine();
                 Main();
                 break;
 
@@ -116,8 +116,8 @@ class Program
                 B = temp;
                 Console.WriteLine($"Valor depois:");
                 Console.WriteLine($"A = {A} e B = {B}");
-                Console.WriteLine($"Espere 5 segundos para voltar pro inicio.");
-                Thread.Sleep(5000);
+                Console.WriteLine("Pressione Enter para voltar...");
+                Console.ReadLine();
                 Main();
                 break;
 
@@ -147,8 +147,8 @@ class Program
                     ano_data -= 1;
                 }
                 Console.WriteLine($"você viveu {ano_data} anos, {mes_data} meses, e {dia_data} dias.");
-                Console.WriteLine($"Espere 5 segundos para voltar pro inicio.");
-                Thread.Sleep(5000);
+                Console.WriteLine("Pressione Enter para voltar...");
+                Console.ReadLine();
                 Main();
                 break;
 
@@ -160,8 +160,8 @@ class Program
                 double temperatura_Celsius = (temperatura_Fareinheit - 32) * 5 / 9;
                 Console.WriteLine($"A temperatura em Fahrenheit é: {temperatura_Fareinheit}°F");
                 Console.WriteLine($"A temperatura em Celsius é: {Math.Round(temperatura_Celsius)}°C");
-                Console.WriteLine($"Espere 5 segundos para voltar pro inicio.");
-                Thread.Sleep(5000);
+                Console.WriteLine("Pressione Enter para voltar...");
+                Console.ReadLine();
                 Main();
                 break;
 
@@ -170,8 +170,8 @@ class Program
                 Console.WriteLine("Vai ser gerado um Numero de |0~100|.");
                 int valor = new Random().Next(0, 101);
                 Console.WriteLine($"O Numero gerado foi: {valor} ");
-                Console.WriteLine($"Espere 5 segundos para voltar pro inicio.");
-                Thread.Sleep(5000);
+                Console.WriteLine("Pressione Enter para voltar...");
+                Console.ReadLine();
                 Main();
                 break;
 
@@ -188,8 +188,8 @@ class Program
                 int resto = A1 % B1;
                 Console.WriteLine($" o quociente de {A1} e {B1} é: {quociente}");
                 Console.WriteLine($" o resto de {A1} e {B1} é: {resto}");
-                Console.WriteLine($"Espere 5 segundos para voltar pro inicio.");
-                Thread.Sleep(5000);
+                Console.WriteLine("Pressione Enter para voltar...");
+                Console.ReadLine();
                 Main();
                 break;
 
@@ -238,8 +238,8 @@ class Program
                 Console.WriteLine($"Reais por hora aula:{reais_por_aula}, aulas por mês:{aulas_por_mes}, taxa do INSS:{taxa_INSS}");
                 Console.WriteLine($"Salário sem taxa: {salario}");
                 Console.WriteLine($"salário com taxa: {salario - taxa}");
-                Console.WriteLine($"Espere 5 segundos para voltar pro inicio.");
-                Thread.Sleep(5000);
+                Console.WriteLine("Pressione Enter para voltar...");
+                Console.ReadLine();
                 Main();
                 break;
 
@@ -281,15 +281,15 @@ class Program
     velocidade: {velocidade}/KPM
     tempo de viagem: {tempo_de_viagem}/H
     """);
-                Console.WriteLine($"Espere 5 segundos para voltar pro inicio.");
-                Thread.Sleep(5000);
+                Console.WriteLine("Pressione Enter para voltar...");
+                Console.ReadLine();
                 Main();
                 break;
 
             default:
                 Console.WriteLine("não é uma questão valida");
-                Console.WriteLine($"Espere 5 segundos para voltar pro inicio.");
-                Thread.Sleep(5000);
+                Console.WriteLine("Pressione Enter para voltar...");
+                Console.ReadLine();
                 Main();
                 break;
         }
@@ -318,8 +318,8 @@ class Program
                 {
                     Console.WriteLine($"{A} e {B} juntos não são maiores que {C}");
                 }
-                Console.WriteLine($"Espere 5 segundos para voltar pro inicio.");
-                Thread.Sleep(5000);
+                Console.WriteLine("Pressione Enter para voltar...");
+                Console.ReadLine();
                 Main();
                 break;
             case 2:
@@ -344,8 +344,8 @@ class Program
                 {
                     Console.WriteLine("o numero é par");
                 }
-                Console.WriteLine($"Espere 5 segundos para voltar pro inicio.");
-                Thread.Sleep(5000);
+                Console.WriteLine("Pressione Enter para voltar...");
+                Console.ReadLine();
                 Main();
                 break;
             case 3:
@@ -368,8 +368,8 @@ class Program
                     c = a * b;
                 }
                 Console.WriteLine($"Valor final: {c}.");
-                Console.WriteLine($"Espere 5 segundos para voltar pro inicio.");
-                Thread.Sleep(5000);
+                Console.WriteLine("Pressione Enter para voltar...");
+                Console.ReadLine();
                 Main();
                 break;
             case 4:
@@ -411,8 +411,8 @@ class Program
                 {
                     Console.WriteLine($"O X é: {X},O Y é: {Y}.");
                 }
-                Console.WriteLine($"Espere 5 segundos para voltar pro inicio.");
-                Thread.Sleep(5000);
+                Console.WriteLine("Pressione Enter para voltar...");
+                Console.ReadLine();
                 Main();
                 break;
             case 5:
@@ -438,8 +438,8 @@ class Program
                     Console.WriteLine($"{abc.GetValue(index)}- {i}");
                     index += 1;
                 }
-                Console.WriteLine($"Espere 5 segundos para voltar pro inicio.");
-                Thread.Sleep(5000);
+                Console.WriteLine("Pressione Enter para voltar...");
+                Console.ReadLine();
                 Main();
                 break;
             case 6:
@@ -475,8 +475,8 @@ class Program
                 {
                     Console.WriteLine("Obeso Level 3");
                 }
-                Console.WriteLine($"Espere 5 segundos para voltar pro inicio.");
-                Thread.Sleep(5000);
+                Console.WriteLine("Pressione Enter para voltar...");
+                Console.ReadLine();
                 Main();
                 break;
             case 7:
@@ -495,8 +495,8 @@ class Program
 
                 int media_das_notas = (nota1 + nota2 + nota3) / 3;
                 Console.WriteLine($"A media das notas do aluno é {media_das_notas}.");
-                Console.WriteLine($"Espere 5 segundos para voltar pro inicio.");
-                Thread.Sleep(5000);
+                Console.WriteLine("Pressione Enter para voltar...");
+                Console.ReadLine();
                 Main();
                 break;
             case 8:
@@ -531,8 +531,8 @@ class Program
                 {
                     Console.WriteLine($"O aluno {nome_do_aluno} reprovou.");
                 }
-                Console.WriteLine($"Espere 5 segundos para voltar pro inicio.");
-                Thread.Sleep(5000);
+                Console.WriteLine("Pressione Enter para voltar...");
+                Console.ReadLine();
                 Main();
                 break;
             case 9:
@@ -556,21 +556,21 @@ class Program
                 {
                     Console.WriteLine("Menor de idade");
                 }
-                Console.WriteLine($"Espere 5 segundos para voltar pro inicio.");
-                Thread.Sleep(5000);
+                Console.WriteLine("Pressione Enter para voltar...");
+                Console.ReadLine();
                 Main();
                 break;
             case 10:
                 Local("Exercícios da estrutura if-else", $"Questão - {questão}");
                 triangulo_valido(false);
-                Console.WriteLine($"Espere 5 segundos para voltar pro inicio.");
-                Thread.Sleep(5000);
+                Console.WriteLine("Pressione Enter para voltar...");
+                Console.ReadLine();
                 Main();
                 break;
             default:
                 Console.WriteLine("não é uma questão valida");
-                Console.WriteLine($"Espere 5 segundos para voltar pro inicio.");
-                Thread.Sleep(5000);
+                Console.WriteLine("Pressione Enter para voltar...");
+                Console.ReadLine();
                 Main();
                 break;
         }
@@ -696,8 +696,8 @@ class Program
 
                 if (resposta == "N")
                 { Simulação_customizada(); }
-                Console.WriteLine($"Espere 5 segundos para voltar pro inicio.");
-                Thread.Sleep(5000);
+                Console.WriteLine("Pressione Enter para voltar...");
+                Console.ReadLine();
                 Main();
                 break;
 
@@ -706,7 +706,7 @@ class Program
                 Console.WriteLine("Aqui esta a tabuada feita:");
                 Local("Exercícios de lógica", "questão - 3");
                 Console.WriteLine($"A Tabuada de 0 a 10.");
-
+                int N = 0;
                 for (int n = 0; n <= 10;)
                 {
                     Console.WriteLine($"A Tabuada do {n}:");
@@ -716,10 +716,14 @@ class Program
                         i++;
                     }
                     n++;
+                    N = n;
                 }
-                Console.WriteLine($"Espere 10 segundos para voltar pro inicio.");
-                Thread.Sleep(10000);
-                Main();
+                if (N >= 11)
+                {
+                    Console.WriteLine("Pressione Enter para voltar...");
+                    Console.ReadLine();
+                    Main();
+                }
                 break;
             case 3:
                 Local("Exercícios de lógica", "questão - 3");
@@ -731,15 +735,15 @@ class Program
                     Console.WriteLine($"{numero_tabuada} * {i} = {numero_tabuada * i}");
                     i++;
                 }
-                Console.WriteLine($"Espere 5 segundos para voltar pro inicio.");
-                Thread.Sleep(5000);
+                Console.WriteLine("Pressione Enter para voltar...");
+                Console.ReadLine();
                 Main();
                 break;
 
             default:
                 Console.WriteLine("Não é uma questão válida");
-                Console.WriteLine($"Espere 5 segundos para voltar pro inicio.");
-                Thread.Sleep(5000);
+                Console.WriteLine("Pressione Enter para voltar...");
+                Console.ReadLine();
                 Main();
                 break;
         }
@@ -786,8 +790,8 @@ class Program
 
             default:
                 Console.WriteLine("Opção inválida.");
-                Console.WriteLine($"Espere 2 segundos para voltar pro inicio.");
-                Thread.Sleep(2000);
+                Console.WriteLine($"Espere para voltar pro inicio.");
+                Thread.Sleep(1000);
                 Main();
                 break;
         }
