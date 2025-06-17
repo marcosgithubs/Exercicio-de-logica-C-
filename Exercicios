@@ -2,64 +2,85 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 class Program
 {
-    static void triangulo_valido(bool ja_entrou)
+    static void OlharOCodigo()
     {
-        if (ja_entrou == false)
+        Local("Codigo", "");
+        string filePath = "C:\\Users\\BSBIA04-EST61\\source\\repos\\Exercicio\\Program.cs";
+        try
+        {
+            using (StreamReader reader = new StreamReader(filePath))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    Console.WriteLine(line);
+                }
+
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("Ocorreu um erro: " + e.Message);
+        }
+    }
+    static void TrianguloValido(bool jaEntrou)
+    {
+        if (jaEntrou == false)
             Console.WriteLine("Digite os tres lados de um triangulo");
 
         Console.WriteLine("Digite o ponto A do triangulo:");
-        int lado_a = int.Parse(Console.ReadLine());
-        if (lado_a < 0)
+        int ladoA = int.Parse(Console.ReadLine());
+        if (ladoA < 0)
         {
             Console.WriteLine("Valor invalido tente novamente.");
             Thread.Sleep(500);
-            triangulo_valido(true);
+            TrianguloValido(true);
 
         }
         Console.WriteLine("Digite o ponto B do triangulo:");
 
-        int lado_b = int.Parse(Console.ReadLine());
-        if (lado_b < 0)
+        int ladoB = int.Parse(Console.ReadLine());
+        if (ladoB < 0)
         {
             Console.WriteLine("Valor invalido tente novamente.");
             Thread.Sleep(500);
-            triangulo_valido(true);
+            TrianguloValido(true);
 
         }
         Console.WriteLine("Digite o ponto C do triangulo (precisa ser maior que o ponto A e o ponto B juntos):");
-        int lado_c = int.Parse(Console.ReadLine());
-        if (lado_c < lado_a + lado_b)
+        int ladoC = int.Parse(Console.ReadLine());
+        if (ladoC < ladoA + ladoB)
         {
             Console.WriteLine("Valor invalido tente novamente.");
             Thread.Sleep(500);
-            triangulo_valido(true);
+            TrianguloValido(true);
 
         }
-        string tipo_de_triangulo = "";
-        if (lado_a == lado_b & lado_b == lado_c)
-            tipo_de_triangulo = "Equilátero";
-        else if (lado_a == lado_b & lado_b == lado_c & lado_a == lado_c)
-            tipo_de_triangulo = "Isósceles";
+        string tipoDeTriangulo = "";
+        if (ladoA == ladoB & ladoB == ladoC)
+            tipoDeTriangulo = "Equilátero";
+        else if (ladoA == ladoB & ladoB == ladoC & ladoA == ladoC)
+            tipoDeTriangulo = "Isósceles";
         else
-            tipo_de_triangulo = "Escaleno";
+            tipoDeTriangulo = "Escaleno";
         Local("Exercícios da estrutura if-else", $"Questão - 10");
-        Console.WriteLine($"O valor do lado A é: {lado_a}, O valor do lado B é: {lado_b}, O valor do lado C é: {lado_c}.");
-        Console.WriteLine($"O tipo desse triangulo é: {tipo_de_triangulo}");
+        Console.WriteLine($"O valor do lado A é: {ladoA}, O valor do lado B é: {ladoB}, O valor do lado C é: {ladoC}.");
+        Console.WriteLine($"O tipo desse triangulo é: {tipoDeTriangulo}");
     }
 
-    static void Local(string Exercicio, string Questão)
+    static void Local(string exercicio, string questão)
     {
         Console.Clear();
-        if (Exercicio != "" & Questão != "")
+        if (exercicio != "" & questão != "")
         {
             Console.WriteLine($"""
-            {Exercicio}
-                {Questão}
+            {exercicio}
+                {questão}
             """);
         }
 
     }
-    static void logica(int questão)
+    static void Logica(int questão)
     {
         switch (questão)
         {
@@ -78,12 +99,12 @@ class Program
             case 2:
                 Local("Exercícios de lógica", "Questão - 2");
                 Console.WriteLine("Digite o quanto você ganha de salario:");
-                double salario_minimo = 1293.20;
-                int salario_user = int.Parse(Console.ReadLine());
+                double salarioMinimo = 1293.20;
+                int salarioUser = int.Parse(Console.ReadLine());
                 Console.Clear();
                 Local("Exercícios de lógica", "Questão - 2");
-                double quanto_mais_ganha = salario_user / salario_minimo;
-                Console.WriteLine($"você recebe {Math.Round(quanto_mais_ganha)} vezes o salário minimo normal");
+                double quantoMaisGanha = salarioUser / salarioMinimo;
+                Console.WriteLine($"você recebe {Math.Round(quantoMaisGanha)} vezes o salário minimo normal");
                 Console.WriteLine("Pressione Enter para voltar...");
                 Console.ReadLine();
                 Main();
@@ -92,10 +113,10 @@ class Program
             case 3:
                 Local("Exercícios de lógica", "Questão - 3");
                 Console.WriteLine($"Digite um valor pra ser reajustado em 5%:");
-                int valor_qualquer = int.Parse(Console.ReadLine());
+                int valorQualquer = int.Parse(Console.ReadLine());
                 Console.Clear();
                 Local("Exercícios de lógica", "Questão - 3");
-                Console.WriteLine($"aqui esta o valor com reajuste: {valor_qualquer + 5 % valor_qualquer}");
+                Console.WriteLine($"aqui esta o valor com reajuste: {valorQualquer + 5 % valorQualquer}");
                 Console.WriteLine("Pressione Enter para voltar...");
                 Console.ReadLine();
                 Main();
@@ -104,18 +125,18 @@ class Program
             case 4:
                 Local("Exercícios de lógica", "Questão - 4");
                 Console.WriteLine($"Digite um valor:");
-                int A = int.Parse(Console.ReadLine());
+                int a = int.Parse(Console.ReadLine());
                 Local("Exercícios de lógica", "Questão - 4");
                 Console.WriteLine($"Digite outro valor:");
-                int B = int.Parse(Console.ReadLine());
+                int b = int.Parse(Console.ReadLine());
                 Local("Exercícios de lógica", "Questão - 4");
                 Console.WriteLine($"Valor antes:");
-                Console.WriteLine($"A = {A} e B = {B}");
-                int temp = A;
-                A = B;
-                B = temp;
+                Console.WriteLine($"A = {a} e B = {b}");
+                int temp = a;
+                a = b;
+                b = temp;
                 Console.WriteLine($"Valor depois:");
-                Console.WriteLine($"A = {A} e B = {B}");
+                Console.WriteLine($"A = {a} e B = {b}");
                 Console.WriteLine("Pressione Enter para voltar...");
                 Console.ReadLine();
                 Main();
@@ -124,29 +145,29 @@ class Program
             case 5:
                 Local("Exercícios de lógica", "Questão - 5");
                 Console.WriteLine("Digite o ano do seu nascimento: ");
-                int ano_nascimento = int.Parse(Console.ReadLine());
+                int anoNascimento = int.Parse(Console.ReadLine());
                 Local("Exercícios de lógica", "Questão - 5");
                 Console.WriteLine("Digite o mês do seu nascimento: ");
-                int mes_nascimento = int.Parse(Console.ReadLine());
+                int mesNascimento = int.Parse(Console.ReadLine());
                 Local("Exercícios de lógica", "Questão - 5");
                 Console.WriteLine("Digite o dia do seu nascimento: ");
-                int dia_nascimento = int.Parse(Console.ReadLine());
-                int ano_atual = DateTime.Now.Year;
-                int dia_data = DateTime.Now.Day - dia_nascimento;
-                int mes_data = DateTime.Now.Month - mes_nascimento;
-                int ano_data = ano_atual - ano_nascimento;
+                int diaNascimento = int.Parse(Console.ReadLine());
+                int anoAtual = DateTime.Now.Year;
+                int diaData = DateTime.Now.Day - diaNascimento;
+                int mesData = DateTime.Now.Month - mesNascimento;
+                int anoData = anoAtual - anoNascimento;
                 Local("Exercícios de lógica", "Questão - 5");
-                if (dia_data < 0)
+                if (diaData < 0)
                 {
-                    dia_data += 31;
-                    mes_data -= 1;
+                    diaData += 31;
+                    mesData -= 1;
                 }
-                if (mes_data < 0)
+                if (mesData < 0)
                 {
-                    mes_data += 12;
-                    ano_data -= 1;
+                    mesData += 12;
+                    anoData -= 1;
                 }
-                Console.WriteLine($"você viveu {ano_data} anos, {mes_data} meses, e {dia_data} dias.");
+                Console.WriteLine($"você viveu {anoData} anos, {mesData} meses, e {diaData} dias.");
                 Console.WriteLine("Pressione Enter para voltar...");
                 Console.ReadLine();
                 Main();
@@ -155,11 +176,11 @@ class Program
             case 6:
                 Local("Exercícios de lógica", "Questão - 6");
                 Console.WriteLine($"Digite uma temperatura em Farenheit:");
-                double temperatura_Fareinheit = double.Parse(Console.ReadLine());
+                double temperaturaFareinheit = double.Parse(Console.ReadLine());
                 Local("Exercícios de lógica", "Questão - 6");
-                double temperatura_Celsius = (temperatura_Fareinheit - 32) * 5 / 9;
-                Console.WriteLine($"A temperatura em Fahrenheit é: {temperatura_Fareinheit}°F");
-                Console.WriteLine($"A temperatura em Celsius é: {Math.Round(temperatura_Celsius)}°C");
+                double temperaturaCelsius = (temperaturaFareinheit - 32) * 5 / 9;
+                Console.WriteLine($"A temperatura em Fahrenheit é: {temperaturaFareinheit}°F");
+                Console.WriteLine($"A temperatura em Celsius é: {Math.Round(temperaturaCelsius)}°C");
                 Console.WriteLine("Pressione Enter para voltar...");
                 Console.ReadLine();
                 Main();
@@ -179,15 +200,15 @@ class Program
                 Local("Exercícios de lógica", "Questão - 8");
                 Console.WriteLine($"Digite o Valor A e B para saber o quociente e resto.");
                 Console.WriteLine($"Digite o Valor A:");
-                int A1 = int.Parse(Console.ReadLine());
+                int a1 = int.Parse(Console.ReadLine());
                 Local("Exercícios de lógica", "Questão - 8");
                 Console.WriteLine($"Digite o Valor B:");
-                int B1 = int.Parse(Console.ReadLine());
+                int b1 = int.Parse(Console.ReadLine());
                 Local("Exercícios de lógica", "Questão - 8");
-                int quociente = A1 / B1;
-                int resto = A1 % B1;
-                Console.WriteLine($" o quociente de {A1} e {B1} é: {quociente}");
-                Console.WriteLine($" o resto de {A1} e {B1} é: {resto}");
+                int quociente = a1 / b1;
+                int resto = a1 % b1;
+                Console.WriteLine($" o quociente de {a1} e {b1} é: {quociente}");
+                Console.WriteLine($" o resto de {a1} e {b1} é: {resto}");
                 Console.WriteLine("Pressione Enter para voltar...");
                 Console.ReadLine();
                 Main();
@@ -197,45 +218,45 @@ class Program
                 Local("Exercícios de lógica", "Questão - 9");
                 Console.WriteLine($"*SIMULAÇÃO DE UM SALARIO DE PROFESSOR*");
                 Console.WriteLine($"Digite quantos Reais por Hora Aula:");
-                int reais_por_aula = int.Parse(Console.ReadLine());
+                int reaisPorAula = int.Parse(Console.ReadLine());
                 Local("Exercícios de lógica", "Questão - 9");
                 Console.WriteLine($"*SIMULAÇÃO DE UM SALARIO DE PROFESSOR*");
                 Console.WriteLine($"Digite quantas aulas por Mês:");
-                int aulas_por_mes = int.Parse(Console.ReadLine());
-                int salario = reais_por_aula * aulas_por_mes;
+                int aulasPorMes = int.Parse(Console.ReadLine());
+                int salario = reaisPorAula * aulasPorMes;
                 Local("Exercícios de lógica", "Questão - 9");
                 Console.WriteLine($"*SIMULAÇÃO DE UM SALARIO DE PROFESSOR*");
                 Console.WriteLine($"Digite uma taxa do INSS (Coloque 0 para valor default):");
-                int taxa_custom = int.Parse(Console.ReadLine());
-                int taxa_INSS = 14;
-                if (taxa_custom != 0)
+                int taxaCustom = int.Parse(Console.ReadLine());
+                int taxaINSS = 14;
+                if (taxaCustom != 0)
                 {
-                    taxa_INSS = taxa_custom;
+                    taxaINSS = taxaCustom;
                 }
                 else
                 {
                     if (salario <= 1412)
                     {
-                        taxa_INSS = 7;
+                        taxaINSS = 7;
                     }
 
                     if (salario > 1412.01 & salario < 2666.68)
                     {
-                        taxa_INSS = 9;
+                        taxaINSS = 9;
                     }
 
                     if (salario > 2666.69 & salario < 4000.03)
                     {
-                        taxa_INSS = 12;
+                        taxaINSS = 12;
                     }
 
                     if (salario > 4000.04)
                     {
-                        taxa_INSS = 14;
+                        taxaINSS = 14;
                     }
                 }
-                int taxa = (taxa_INSS * salario) / 100;
-                Console.WriteLine($"Reais por hora aula:{reais_por_aula}, aulas por mês:{aulas_por_mes}, taxa do INSS:{taxa_INSS}");
+                int taxa = (taxaINSS * salario) / 100;
+                Console.WriteLine($"Reais por hora aula:{reaisPorAula}, aulas por mês:{aulasPorMes}, taxa do INSS:{taxaINSS}");
                 Console.WriteLine($"Salário sem taxa: {salario}");
                 Console.WriteLine($"salário com taxa: {salario - taxa}");
                 Console.WriteLine("Pressione Enter para voltar...");
@@ -247,10 +268,10 @@ class Program
                 Local("Exercícios de lógica", "Questão - 10");
                 Console.WriteLine($"*SIMULAÇÃO DE UM CARRO*");
                 Console.WriteLine($"Digite Quantos KM por Litro o carro faz (0 para valor default):");
-                int distancia_por_litro = int.Parse(Console.ReadLine());
-                if (distancia_por_litro == 0)
+                int distanciaPorLitro = int.Parse(Console.ReadLine());
+                if (distanciaPorLitro == 0)
                 {
-                    distancia_por_litro = 12;
+                    distanciaPorLitro = 12;
                 }
                 Local("Exercícios de lógica", "Questão - 10");
                 Console.WriteLine($"*SIMULAÇÃO DE UM CARRO*");
@@ -260,7 +281,7 @@ class Program
                 {
                     litros = 50;
                 }
-                int distancia_percorrida = distancia_por_litro * litros;
+                int distanciaPercorrida = distanciaPorLitro * litros;
                 Local("Exercícios de lógica", "Questão - 10");
                 Console.WriteLine($"*SIMULAÇÃO DE UM CARRO*");
                 Console.WriteLine($"Digite em que Velocidade o Carro esta (0 para valor default):");
@@ -270,16 +291,16 @@ class Program
                     velocidade = 80;
                 }
 
-                int tempo_de_viagem = distancia_percorrida / velocidade;
+                int tempoDeViagem = distanciaPercorrida / velocidade;
                 Local("Exercícios de lógica", "Questão - 10");
                 Console.WriteLine($"*SIMULAÇÃO DE UM CARRO*");
                 Console.WriteLine(
                     $"""
-    kilometro por litro: {distancia_por_litro}/KM
+    kilometro por litro: {distanciaPorLitro}/KM
     litros: {litros}/L
-    distancia que pode ser percorrida: {distancia_percorrida}/KM
+    distancia que pode ser percorrida: {distanciaPercorrida}/KM
     velocidade: {velocidade}/KPM
-    tempo de viagem: {tempo_de_viagem}/H
+    tempo de viagem: {tempoDeViagem}/H
     """);
                 Console.WriteLine("Pressione Enter para voltar...");
                 Console.ReadLine();
@@ -294,29 +315,29 @@ class Program
                 break;
         }
     }
-    static void if_else(int questão)
+    static void IfElse(int questão)
     {
         switch (questão)
         {
             case 1:
                 Local("Exercícios da estrutura if-else", $"Questão - {questão}");
                 Console.WriteLine($"Digite um numero");
-                int A = int.Parse(Console.ReadLine());
+                int a2 = int.Parse(Console.ReadLine());
                 Local("Exercícios da estrutura if-else", $"Questão - {questão}");
                 Console.WriteLine($"Digite outro numero");
-                int B = int.Parse(Console.ReadLine());
+                int b2 = int.Parse(Console.ReadLine());
                 Local("Exercícios da estrutura if-else", $"Questão - {questão}");
                 Console.WriteLine($"Digite mais um numero");
-                int C = int.Parse(Console.ReadLine());
+                int c2 = int.Parse(Console.ReadLine());
                 Local("Exercícios da estrutura if-else", $"Questão - {questão}");
-                int soma = A + B;
-                if (soma > C)
+                int soma = a2 + b2;
+                if (soma > c2)
                 {
-                    Console.WriteLine($"{A} e {B} juntos são maiores que {C}");
+                    Console.WriteLine($"{a2} e {b2} juntos são maiores que {c2}");
                 }
                 else
                 {
-                    Console.WriteLine($"{A} e {B} juntos não são maiores que {C}");
+                    Console.WriteLine($"{a2} e {b2} juntos não são maiores que {c2}");
                 }
                 Console.WriteLine("Pressione Enter para voltar...");
                 Console.ReadLine();
@@ -376,40 +397,40 @@ class Program
                 Local("Exercícios da estrutura if-else", $"Questão - {questão}");
                 Console.WriteLine("Escreva o valor de duas variaveis para serem comparadas");
                 Console.WriteLine("Escreva se o valor X é (falso/verdadeiro) escreva tudo minusculo");
-                bool X = false;
-                bool Y = true;
-                string custom_x = Console.ReadLine();
-                if (custom_x == "verdadeiro")
+                bool x = false;
+                bool y = true;
+                string customX = Console.ReadLine();
+                if (customX == "verdadeiro")
                 {
-                    X = true;
+                    x = true;
                 }
                 else
                 {
-                    X = false;
+                    x = false;
                 }
                 Local("Exercícios da estrutura if-else", $"Questão - {questão}");
                 Console.WriteLine("Escreva se o valor Y é (falso/verdadeiro) escreva tudo minusculo");
                 string custom_y = Console.ReadLine();
                 if (custom_y == "verdadeiro")
                 {
-                    Y = true;
+                    y = true;
                 }
                 else
                 {
-                    Y = false;
+                    y = false;
                 }
                 Local("Exercícios da estrutura if-else", $"Questão - {questão}");
-                if (Y == false & X == false)
+                if (y == false & x == false)
                 {
                     Console.WriteLine("X e Y são falsos");
                 }
-                else if (Y == true & X == true)
+                else if (y == true & x == true)
                 {
                     Console.WriteLine($"X e Y são verdadeiros");
                 }
                 else
                 {
-                    Console.WriteLine($"O X é: {X},O Y é: {Y}.");
+                    Console.WriteLine($"O X é: {x},O Y é: {y}.");
                 }
                 Console.WriteLine("Pressione Enter para voltar...");
                 Console.ReadLine();
@@ -419,16 +440,16 @@ class Program
                 Local("Exercícios da estrutura if-else", $"Questão - {questão}");
                 Console.WriteLine("Digite 3 valores para ser organizados em ordem");
                 Console.WriteLine("Digite o Valor A:");
-                int L = int.Parse(Console.ReadLine());
+                int l = int.Parse(Console.ReadLine());
                 Local("Exercícios da estrutura if-else", $"Questão - {questão}");
                 Console.WriteLine("Digite o Valor B:");
-                int M = int.Parse(Console.ReadLine());
+                int m = int.Parse(Console.ReadLine());
                 Local("Exercícios da estrutura if-else", $"Questão - {questão}");
                 Console.WriteLine("Digite o Valor C:");
-                int N = int.Parse(Console.ReadLine());
+                int n = int.Parse(Console.ReadLine());
                 Local("Exercícios da estrutura if-else", $"Questão - {questão}");
                 Console.WriteLine("Os Numeros vão ser organizados...");
-                int[] numeros = { L, M, N };
+                int[] numeros = { l, m, n };
                 string[] abc = { "A", "B", "C" };
                 Array.Sort(numeros);
                 Array.Reverse(numeros);
@@ -493,8 +514,8 @@ class Program
                 int nota3 = int.Parse(Console.ReadLine());
                 Local("Exercícios da estrutura if-else", $"Questão - {questão}");
 
-                int media_das_notas = (nota1 + nota2 + nota3) / 3;
-                Console.WriteLine($"A media das notas do aluno é {media_das_notas}.");
+                int mediaDasNotas = (nota1 + nota2 + nota3) / 3;
+                Console.WriteLine($"A media das notas do aluno é {mediaDasNotas}.");
                 Console.WriteLine("Pressione Enter para voltar...");
                 Console.ReadLine();
                 Main();
@@ -503,7 +524,7 @@ class Program
                 Local("Exercícios da estrutura if-else", $"Questão - {questão}");
                 Console.WriteLine($"Digite quatro notas de um aluno e o nome dele para saber se a nota media dele foi aprovada.");
                 Console.WriteLine($"Digite o nome do aluno:");
-                string nome_do_aluno = Console.ReadLine();
+                string nomeDoAluno = Console.ReadLine();
                 Local("Exercícios da estrutura if-else", $"Questão - {questão}");
                 Console.WriteLine($"Digite a primeira nota:");
                 int Nota1 = int.Parse(Console.ReadLine());
@@ -518,18 +539,18 @@ class Program
                 int Nota4 = int.Parse(Console.ReadLine());
                 Local("Exercícios da estrutura if-else", $"Questão - {questão}");
                 Console.WriteLine($"A nota que ele precisa ter para passar é 7.");
-                int quantidade_de_notas = 4;
-                int quantidade_pra_passar = 7;
-                int media_final = (Nota1 + Nota2 + Nota3 + Nota4) / quantidade_de_notas;
-                Console.WriteLine($"a nota 1 do aluno {nome_do_aluno}: {Nota1}, nota 2: {Nota2}, nota 3: {Nota3}, nota 4: {Nota4}.");
-                Console.WriteLine($"A media das notas do aluno {nome_do_aluno} é {media_final}.");
-                if (media_final >= quantidade_pra_passar)
+                int quantidadeDeNotas = 4;
+                int quantidadePraPassar = 7;
+                int mediaFinal = (Nota1 + Nota2 + Nota3 + Nota4) / quantidadeDeNotas;
+                Console.WriteLine($"a nota 1 do aluno {nomeDoAluno}: {Nota1}, nota 2: {Nota2}, nota 3: {Nota3}, nota 4: {Nota4}.");
+                Console.WriteLine($"A media das notas do aluno {nomeDoAluno} é {mediaFinal}.");
+                if (mediaFinal >= quantidadePraPassar)
                 {
-                    Console.WriteLine($"O aluno {nome_do_aluno} passou.");
+                    Console.WriteLine($"O aluno {nomeDoAluno} passou.");
                 }
                 else
                 {
-                    Console.WriteLine($"O aluno {nome_do_aluno} reprovou.");
+                    Console.WriteLine($"O aluno {nomeDoAluno} reprovou.");
                 }
                 Console.WriteLine("Pressione Enter para voltar...");
                 Console.ReadLine();
@@ -562,7 +583,7 @@ class Program
                 break;
             case 10:
                 Local("Exercícios da estrutura if-else", $"Questão - {questão}");
-                triangulo_valido(false);
+                TrianguloValido(false);
                 Console.WriteLine("Pressione Enter para voltar...");
                 Console.ReadLine();
                 Main();
@@ -575,7 +596,7 @@ class Program
                 break;
         }
     }
-    static void switch_case(int opção, int valor)
+    static void SwitchCase(int opção, int valor)
     {
         Local("Exercícios da estrutura switch-case", "Questão 1");
 
@@ -628,13 +649,13 @@ class Program
                 break;
 
             case 7:
-                double raiz = Math.Pow(valor1, 1.0/valor2);
+                double raiz = Math.Pow(valor1, 1.0 / valor2);
                 Console.WriteLine($"raiz quadrada de {valor1} = {raiz}");
                 break;
         }
     }
 
-    static void Simulação_controlada()
+    static void SimulaçãoControlada()
     {
         double sara_altura = 1.50;
         double francisco_altura = 1.30;
@@ -654,7 +675,7 @@ class Program
         Console.WriteLine($"Francisco tem {francisco_altura}m e Sara tem {sara_altura}m.");
     }
 
-    static void Simulação_customizada()
+    static void SimulaçãoCustomizada()
     {
         Local("Exercícios de estruturas de repetição", $"Questão - 1");
 
@@ -682,7 +703,7 @@ class Program
         Console.WriteLine($"Francisco tem {francisco_altura}m e Sara tem {sara_altura}m.");
     }
 
-    static void repetição(int questão)
+    static void Repetição(int questão)
     {
         switch (questão)
         {
@@ -692,10 +713,10 @@ class Program
                 string resposta = Console.ReadLine();
 
                 if (resposta == "Y")
-                { Simulação_controlada(); }
+                { SimulaçãoControlada(); }
 
                 if (resposta == "N")
-                { Simulação_customizada(); }
+                { SimulaçãoCustomizada(); }
                 Console.WriteLine("Pressione Enter para voltar...");
                 Console.ReadLine();
                 Main();
@@ -719,16 +740,16 @@ class Program
                 Console.WriteLine("Pressione Enter para voltar...");
                 Console.ReadLine();
                 Main();
-                
                 break;
+
             case 3:
                 Local("Exercícios de lógica", "questão - 3");
                 Console.WriteLine("Digite um numero para saber a tabuada: ");
-                int numero_tabuada = int.Parse(Console.ReadLine());
+                int numeroTabuada = int.Parse(Console.ReadLine());
                 Local("Exercícios de lógica", "questão - 3");
                 for (int i = 0; i <= 10;)
                 {
-                    Console.WriteLine($"{numero_tabuada} * {i} = {numero_tabuada * i}");
+                    Console.WriteLine($"{numeroTabuada} * {i} = {numeroTabuada * i}");
                     i++;
                 }
                 Console.WriteLine("Pressione Enter para voltar...");
@@ -754,34 +775,43 @@ class Program
             2 - Exercícios da estrutura if-else
             3 - Exercícios da estrutura switch-case
             4 - Exercícios de estruturas de repetição
+            5 - Ver o codigo
         """);
 
-        int Exercicio = int.Parse(Console.ReadLine());
+        int exercicio = int.Parse(Console.ReadLine());
 
-        switch (Exercicio)
+        switch (exercicio)
         {
             case 1:
                 Local("Exercícios de lógica", "Digite de 1~10 para ver o conteúdo de uma questão");
                 int questão = int.Parse(Console.ReadLine());
-                logica(questão);
+                Logica(questão);
                 break;
 
             case 2:
                 Local("Exercícios da estrutura if-else", "Digite de 1~10 para ver o conteúdo de uma questão");
                 int questão2 = int.Parse(Console.ReadLine());
-                if_else(questão2);
+                IfElse(questão2);
                 break;
 
             case 3:
                 Local("Exercícios da estrutura switch-case", "Digite um número de 1~2 para ver a questão correspondente");
                 int questão6 = int.Parse(Console.ReadLine());
-                switch_case_main(questão6);
+                SwitchCaseMain(questão6);
                 break;
 
             case 4:
                 Local("Exercícios de estruturas de repetição", "Digite de 1~3 para ver o conteúdo de uma questão");
                 int questão4 = int.Parse(Console.ReadLine());
-                repetição(questão4);
+                Repetição(questão4);
+                break;
+
+            case 5:
+                Console.WriteLine("Codigo");
+                OlharOCodigo();
+                Console.WriteLine("Pressione Enter para voltar...");
+                Console.ReadLine();
+                Main();
                 break;
 
             default:
@@ -793,7 +823,7 @@ class Program
         }
     }
 
-    static void switch_case_main(int questão)
+    static void SwitchCaseMain(int questão)
     {
         if (questão == 1)
         {
@@ -809,7 +839,7 @@ class Program
             """);
 
             int opçãoPagamento = int.Parse(Console.ReadLine());
-            switch_case(opçãoPagamento, preço);
+            SwitchCase(opçãoPagamento, preço);
         }
         else if (questão == 2)
         {
@@ -832,10 +862,10 @@ class Program
 
             double valor2 = 0;
 
-            
-                Console.WriteLine("Digite o segundo número da equação:");
-               valor2 = double.Parse(Console.ReadLine());
-            
+
+            Console.WriteLine("Digite o segundo número da equação:");
+            valor2 = double.Parse(Console.ReadLine());
+
 
             Calculadora(opção, valor1, valor2);
         }
